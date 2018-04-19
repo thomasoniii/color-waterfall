@@ -32,7 +32,8 @@ export default class Blob extends Component {
           <Blob
             start={start}
             end={end}
-            depth = {Math.max(this.props.depth - 10, 10)}
+            saturation={100}
+            brightness = {Math.max(this.props.brightness - 10, 10)}
             width={kidWidth}
             height={this.props.height}
           />
@@ -44,12 +45,12 @@ export default class Blob extends Component {
 
   render() {
 
-    const { start, end, depth, width, height } = this.props;
+    const { start, end, saturation, brightness, width, height } = this.props;
 
     return (
       <div>
         <div onClick = { this.addKid }
-          style={{boxSizing : 'border-box', width : `${width}px`, height : `${height}px`, backgroundColor : `hsl(${end}, 100%, ${depth}%)`, border : '1px solid black'}}>
+          style={{boxSizing : 'border-box', width : `${width}px`, height : `${height}px`, backgroundColor : `hsl(${end}, ${saturation}%, ${brightness}%)`, border : '1px solid black'}}>
         </div>
         { this.renderKids() }
       </div>
