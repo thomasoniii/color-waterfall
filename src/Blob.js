@@ -19,7 +19,7 @@ export default class Blob extends Component {
     if (! this.state.kids) { return null };
 
     const slice = (this.props.end - this.props.start) / this.state.kids;
-    
+
     for (let i = 0; i < this.state.kids; i++) {
       const start = this.props.start + i * slice;
       const end = start + slice;
@@ -46,7 +46,7 @@ export default class Blob extends Component {
     return (
       <div>
         <div onClick = { this.addKid }
-          style={{boxSizing : 'border-box', width : `${width}px`, height : `${height}px`, backgroundColor : `hsl(${start + (end - start) / 2}, ${depth}%, 50%)`, border : '1px solid black'}}>
+          style={{boxSizing : 'border-box', width : `${width}px`, height : `${height}px`, backgroundColor : `hsl(${end}, 100%, ${depth}%)`, border : '1px solid black'}}>
         </div>
         { this.renderKids() }
       </div>
