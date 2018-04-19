@@ -11,7 +11,7 @@ class App extends Component {
         <div>This is a fast proof-of-concept to play around with changing HSV color values to show closeness of relationships
         of children in a tree.</div>
         <div>Click on the colored divs to add children, which{"'"}ll crack their hue values in half. Each step down
-        also decreases the brightness by 10% down to a darkest of 10%.</div>
+        also decreases the saturation by 10% down to a minimum of 10%.</div>
         <Blob start={0} end={360} depth={100} width={1000} height={25}/>
       </div>
     );
