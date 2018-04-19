@@ -35,7 +35,7 @@ export default class Blob extends Component {
             start={start}
             end={end}
             saturation={100}
-            brightness = {Math.max(this.props.brightness - 5, 15)}
+            brightness = {Math.max(Math.min(this.props.brightness, 75) - 5, 15)}
             width={kidWidth}
             height={this.props.height}
           />

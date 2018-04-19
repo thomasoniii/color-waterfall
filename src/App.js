@@ -12,7 +12,7 @@ class App extends Component {
         of children in a tree.</div>
         <div>Click on the colored divs to add children, which{"'"}ll crack their hue values in half. Each step down
         also decreases the saturation by 10% down to a minimum of 10%.</div>
-        <Blob start={0} end={360} saturation={100} brightness={50} width={1000} height={25}/>
+        <Blob start={0} end={360} saturation={100} brightness={100} width={1000} height={25}/>
       </div>
     );
   }
