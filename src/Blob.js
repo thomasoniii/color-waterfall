@@ -19,6 +19,9 @@ export default class Blob extends Component {
     if (! this.state.kids) { return null };
 
     const slice = (this.props.end - this.props.start) / this.state.kids;
+    const kidWidth = this.props.width / this.state.kids;
+
+    if (kidWidth < 1 || 2 * this.state.kids > this.props.width ) { return null }
 
     for (let i = 0; i < this.state.kids; i++) {
       const start = this.props.start + i * slice;
@@ -30,7 +33,7 @@ export default class Blob extends Component {
             start={start}
             end={end}
             depth = {Math.max(this.props.depth - 10, 10)}
-            width={this.props.width / this.state.kids}
+            width={kidWidth}
             height={this.props.height}
           />
         </div>
