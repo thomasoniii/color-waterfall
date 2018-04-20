@@ -39,7 +39,7 @@ export default class Blob extends Component {
     for (let i = 0; i < this.state.kids; i++) {
       let start, end;
 
-      if (this.props.orientation == 1) {
+      if (this.props.orientation === 1) {
         start = this.props.start + sliceStart + i * sliceWidth;
         end = start + sliceWidth;
       }
