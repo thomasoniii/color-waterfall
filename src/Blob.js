@@ -18,16 +18,24 @@ export default class Blob extends Component {
 
     if (! this.state.kids) { return null };
 
-    const slice = (this.props.end - this.props.start) / this.state.kids;
-    const sliceStart = slice * (this.state.kids > 1 ? .25 : 0);
-    const sliceWidth = slice * (this.state.kids > 1 ? .75 : 1);
+    const slice = (this.props.end - this.props.start) / this.state.kids ;
+    const sliceStart = 0;//slice * (this.state.kids > 1 ? .1 : 0);
+    const sliceWidth = slice;//slice * (this.state.kids > 1 ? .9 : 1);
     const kidWidth = this.props.width / this.state.kids;
 
     if (kidWidth < 1 || 2 * this.state.kids > this.props.width ) { return null }
 
     for (let i = 0; i < this.state.kids; i++) {
-      const start = this.props.start + sliceStart + i * sliceWidth;
-      const end = start + sliceWidth;
+      let start, end;
+
+      if (this.props.orientation == 1) {
+        start = this.props.start + sliceStart + i * sliceWidth;
+        end = start + sliceWidth;
+      }
+      else {
+        end = this.props.end - ( sliceStart + i * sliceWidth );
+        start = end - sliceWidth;
+      }
 
       ret.push(
         <div style={{float:'left'}} key={i}>
@@ -38,6 +46,7 @@ export default class Blob extends Component {
             brightness = {Math.max(Math.min(this.props.brightness, 75) - 5, 15)}
             width={kidWidth}
             height={this.props.height}
+            orientation = { this.props.orientation === 1 ? -1 : 1 }
           />
         </div>
       );
@@ -48,6 +57,7 @@ export default class Blob extends Component {
   render() {
 
     const { start, end, saturation, brightness, width, height } = this.props;
+
     const hue = start + (end - start) / 2;
 
     return (
