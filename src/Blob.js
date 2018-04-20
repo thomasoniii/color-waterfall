@@ -10,7 +10,7 @@ export default class Blob extends Component {
   }
 
   addKid() {
-    this.setState({kids : Math.max(this.state.kids + 1, 1)});
+    this.setState({kids : Math.max(this.state.kids + 1, 2)});
   }
 
   nextSaturation(saturation, offset) {
