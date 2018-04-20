@@ -10,7 +10,18 @@ export default class Blob extends Component {
   }
 
   addKid() {
-    this.setState({kids : Math.max(this.state.kids + 1, 2)});
+    this.setState({kids : Math.max(this.state.kids + 1, 1)});
+  }
+
+  nextSaturation(saturation, offset) {
+    let next = saturation - 5 * offset;
+    while (next < 55) { next += 50 };
+    return next;
+  }
+
+  nextBrightness(brightness) {
+    let next = Math.max( Math.min(brightness - 5, 75), 15);
+    return next;
   }
 
   renderKids() {
@@ -42,8 +53,8 @@ export default class Blob extends Component {
           <Blob
             start={start}
             end={end}
-            saturation={100}
-            brightness = {Math.max(Math.min(this.props.brightness, 75) - 5, 15)}
+            saturation={ this.nextSaturation(this.props.saturation, i)}
+            brightness = {this.nextBrightness(this.props.brightness)}
             width={kidWidth}
             height={this.props.height}
             orientation = { this.props.orientation === 1 ? -1 : 1 }
