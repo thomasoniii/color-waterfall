@@ -72,9 +72,9 @@ export default class Blob extends Component {
     const hue = start + (end - start) / 2;
 
     return (
-      <div style={{width : `${width}px`}}>
+      <div style={{width : `${width}vw`}}>
         <div onClick = { this.addKid }
-          style={{boxSizing : 'border-box', width : `${width}px`, height : `${height}px`, backgroundColor : `hsl(${hue}, ${saturation}%, ${brightness}%)`, border : '1px solid black'}}>
+          style={{boxSizing : 'border-box', width : `${width}vw`, height : `${height}vw`, backgroundColor : `hsl(${hue}, ${saturation}%, ${brightness}%)`, border : '1px solid black'}}>
         </div>
         { this.renderKids() }
       </div>

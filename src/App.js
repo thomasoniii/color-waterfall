@@ -17,7 +17,7 @@ class App extends Component {
         <p>Note that colors are recycled - so you may end up with reddish children on two different parts of the hierarchy. The hope
         is that they are far enough distanced from each other that the user won't assume they're related. The only significant color
         relationships should be parental.</p>
-        <Blob start={0} end={360} saturation={100} brightness={100} width={1500} height={40} orientation={1}/>
+        <Blob start={0} end={360} saturation={100} brightness={100} width={100} height={5} orientation={1}/>
       </div>
     );
   }
